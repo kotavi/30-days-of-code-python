@@ -12,8 +12,6 @@ class CoinToss:
         else:
             return "TAILS"
 
-
-
 my_coin = CoinToss()
 
 for i in range(10):
