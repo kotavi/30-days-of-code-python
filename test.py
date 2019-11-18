@@ -51,15 +51,19 @@ def fill_with_zeros(lst, size):
     return new_lst
 
 
-def binary_sum(a, b):
+def binary_sum(a, b, binary=False):
     """
 
     :param a: first integer number
     :param b: second integer number
+    :param binary: type of numbers representation
     :return: result of binary sum of a and b
     """
 
-    lst_a, lst_b = to_binary(a), to_binary(b)
+    if not binary:
+        lst_a, lst_b = to_binary(a), to_binary(b)
+    else:
+        lst_a, lst_b = a, b
     max_size = max(len(lst_a), len(lst_b))
     memory = 0
     result = ''
@@ -95,7 +99,12 @@ def from_binary(b_number):
     :param b_number: binary number, for example: 11100
     :return: integer number
     """
-    str_number = str(b_number)
+    str_number = ''
+    if type(b_number) is list:
+        for v in b_number:
+            str_number = str_number + str(v)
+    else:
+        str_number = str(b_number)
     result = 0
     k = 0
     i = len(str_number) - 1
@@ -105,9 +114,32 @@ def from_binary(b_number):
         i -= 1
     return result
 
+def inverse(lst):
+    """
+
+    :param lst: list of 1's and 0's
+    :return: flipped list
+    """
+    for i in range(len(lst)):
+        if lst[i] == 0:
+            lst[i] = 1
+        else:
+            lst[i] = 0
+    return lst
+
+def negative_binary_number(number):
+    # convert to binary
+    binary_number = to_binary(number)
+    # flip the bits
+    flipped_lst = inverse(binary_number)
+    # extending the sign
+    extended_list = fill_with_zeros(flipped_lst, 8)
+    return binary_sum(flipped_lst, [1], True)
+
 if __name__ == '__main__':
+    print(binary_sum(from_binary(negative_binary_number(12)), 2)) # ?????????? -12 + 2 in binary
     n = int(input("Enter a base-2 number: "))
-    print("{} in base-10 is: {}".format(n, from_binary(n)))
+    print("{} in binary: {}".format(n, from_binary(n)))
     n = int(input("Enter a base-10 integer: "))
     lst = to_binary(n)
     message = "{} converted to binary: {}".format(n, lst)
