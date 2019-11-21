@@ -65,6 +65,7 @@ class Catalog:
 if __name__ == '__main__':
     book_collections = defaultdict()
     harry = Book("Harry Potter", 1999, 37843645)
+    print(harry)
     book_collections["Harry Potter"] = harry
     catalog = Catalog(book_collections)
     catalog.check_out_book("Harry Potter")
@@ -73,6 +74,7 @@ if __name__ == '__main__':
     catalog.set_day(17)
     catalog.return_book("Harry Potter")
     catalog.check_out_book("Harry Potter")
+    print(harry)
     catalog.set_next_day()
     catalog.set_next_day()
     catalog.set_next_day()

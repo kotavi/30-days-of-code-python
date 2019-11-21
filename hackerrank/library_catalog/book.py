@@ -8,6 +8,13 @@ class Book:
         self.isbn = isbn
         self.is_checked_out = is_checked_out
 
+    def __str__(self):
+        if self.is_checked_out:
+            message = "The book: {}, {} pages, {} isbn (book is checked out)".format(self.title, self.page_count, self.isbn)
+        else:
+            message = "The book: {}, {} pages, {} isbn (book is available for check out)".format(self.title, self.page_count, self.isbn)
+        return message
+
     def get_title(self):
         return self.title
 

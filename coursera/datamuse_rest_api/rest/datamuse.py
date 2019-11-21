@@ -8,8 +8,6 @@ sl - sounds like constraint;
 sp - spelled like constraint;
 rel_[code]	Related word constraints: require that the results, when paired with the word in this parameter, are in a predefined lexical relation indicated by [code]. Any number of these parameters may be specified any number of times. An assortment of semantic, phonetic, and corpus-statistics-based relations are available. At this time, these relations are available for English-language vocabularies only.
 
-
-
 words that rhyme with forgetful	/words?rel_rhy=forgetful
 words that rhyme with grape that are related to breakfast	/words?ml=breakfast&rel_rhy=grape
 adjectives that are often used to describe ocean	/words?rel_jjb=ocean
@@ -33,11 +31,6 @@ def get_words_sounds_like(word="elefint"):
     return requests.get(base_url("/words"), params=data)
 
 def get_words_by_regex(regex="t??k"):
-    """
-
-    :param regex:
-    :return:
-    """
     data = {"sp": regex}
     return requests.get(base_url("/words"), params=data)
 
