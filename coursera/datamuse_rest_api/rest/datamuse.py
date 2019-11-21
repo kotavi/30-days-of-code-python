@@ -1,7 +1,5 @@
 import requests
 
-from coursera.datamuse_rest_api.rest.helper import base_url
-
 """
 ml - means like constraint;
 sl - sounds like constraint;
@@ -17,23 +15,27 @@ words that often follow "drink" in a sentence, that start with the letter w	/wor
 words that are triggered by (strongly associated with) the word "cow"	/words?rel_trg=cow
 suggestions for the user if they have typed in rawand so far	/sug?s=rawand
 """
+class DatamuseApi:
 
-def get_words_with_similar_meaning(phrase="ringing in the ears"):
-    data = {"ml": phrase}
-    return requests.get(base_url("/words"), params=data)
+    def __init__(self, url="https://api.datamuse.com"):
+        self.url = url
 
-def get_words_related_to(word="duck", sp="b*"):
-    data = {"ml": word, "sp": sp}
-    return requests.get(base_url("/words"), params=data)
+    def get_words_with_similar_meaning(self, phrase="ringing in the ears"):
+        data = {"ml": phrase}
+        return requests.get(self.url + "/words", params=data)
 
-def get_words_sounds_like(word="elefint"):
-    data = {"sl": word}
-    return requests.get(base_url("/words"), params=data)
+    def get_words_related_to(self, word="duck", sp="b*"):
+        data = {"ml": word, "sp": sp}
+        return requests.get(self.url + "/words", params=data)
 
-def get_words_by_regex(regex="t??k"):
-    data = {"sp": regex}
-    return requests.get(base_url("/words"), params=data)
+    def get_words_sounds_like(self, word="elefint"):
+        data = {"sl": word}
+        return requests.get(self.url + "/words", params=data)
 
-def get_words_spelled_similarly(word="coneticut"):
-    data = {"sp": word}
-    return requests.get(base_url("/words"), params=data)
+    def get_words_by_regex(self, regex="t??k"):
+        data = {"sp": regex}
+        return requests.get(self.url + "/words", params=data)
+
+    def get_words_spelled_similarly(self, word="coneticut"):
+        data = {"sp": word}
+        return requests.get(self.url + "/words", params=data)
