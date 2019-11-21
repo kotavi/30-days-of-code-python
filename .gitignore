@@ -1,6 +1,5 @@
 .idea
-coursera/final_exams/OMDB-TasteDive-Mashup/apikey.json
 test.py
 .DS_Store
 */__pycache__/
-
+coursera/final_exams/OMDB-TasteDive-Mashup/apikey.json
