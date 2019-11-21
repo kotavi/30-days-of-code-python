@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from library_catalog.book import Book
+from hackerrank.library_catalog.book import Book
 
 
 class Catalog:

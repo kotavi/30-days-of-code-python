@@ -1,4 +1,4 @@
-from animal_day12.animal import Animal
+from hackerrank.animal_day12.animal import Animal
 
 
 class Dog(Animal):
