@@ -1,5 +1,5 @@
-
-class Animal:
+from abc import ABC, abstractmethod
+class Animal(ABC):
 
     def __init__(self, age):
         self.age = age
@@ -8,5 +8,10 @@ class Animal:
     def get_age(self):
         return self.age
 
+    @abstractmethod
     def eat(self):
-        print("An animal is eating")
+        pass
+
+    @abstractmethod
+    def sleep(self):
+        pass
