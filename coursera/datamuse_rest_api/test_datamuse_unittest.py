@@ -22,7 +22,7 @@ class Datamuse(unittest.TestCase):
     def test_words_spelled_similarly(self):
         response = self.api.get_words_spelled_similarly("kitten")
         words_list = [data['word'] for data in response.json()]
-        self.assertEqual(response.status_code, 200, 'Cannot execute get request: {}'.format(response.status_code))
+        self.assertEqual(response.status_code, 201, 'Cannot execute get request: {}'.format(response.status_code))
         self.assertTrue('mitten' in words_list, 'Cannot execute get request: {}'.format(response.status_code))
 
 
