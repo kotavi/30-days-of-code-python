@@ -32,3 +32,28 @@ tuples = list(zip(l1, l2))
 opposites = list(filter(lambda w: len(w[0]) > 3 and len(w[1]) > 3, zip(l1, l2)))
 print(opposites)
 
+A = [1,2,3]
+B = [6,5,4]
+C = [7,8,9]
+X = [A] + [B] + [C]
+print(X)
+print(list(zip(*X)))
+
+
+def avg_marks():
+    """
+    5 3
+    89 90 78 93 80
+    90 91 85 88 86
+    91 92 83 89 90.5
+    """
+    # n - number of students
+    # x - number of subjects
+    n, x = map(int, input().split())
+    marks = []
+    for i in range(x):
+        marks.append(list(map(float, input().split())))
+
+    for tup in list(zip(*marks)):
+        print(sum(tup) / len(tup))
+
