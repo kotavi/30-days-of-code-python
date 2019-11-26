@@ -1,0 +1,7 @@
+[{"type": "cash", "text": "$50", "value": 50, "prize": "A trip to Ann Arbor!" },
+{ "type": "bankrupt", "text": "Bankrupt", "prize": false },
+{ "type": "loseturn", "text": "Lose a turn", "prize": false },
+{"type": "cash", "text": "$150", "value": 150, "prize": "TV stand!"},
+{"type": "cash", "text": "$400", "value": 400, "prize": "Fridge!"},
+{"type": "cash", "text": "$300", "value": 300, "prize": "Microwave!"},
+{"type": "cash", "text": "$200", "value": 200, "prize": "Laptop"}]
