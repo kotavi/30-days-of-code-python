@@ -3,9 +3,8 @@ from hackerrank.linked_lists_day15.singly_linked_lists import SLLNode
 
 
 class SLL:
-
     def __init__(self):
-        self.head = None # when we first create a new singly Linked List object, we haven't yet associated any nodes to it.
+        self.head = None  # when we first create a new singly Linked List object, we haven't yet associated any nodes to it.
 
     def __repr__(self):
         return "SLL object: head={}".format(self.head)
@@ -24,8 +23,8 @@ class SLL:
         """Add a Node whose data is the new_data argument to the end of the Linked List"""
         new_node = SLLNode(new_data)
         if self.head is None:
-            head = new_node
-            return head
+            self.head = new_node
+            return self.head
         last = self.head
         while last.next:
             last = last.next
@@ -71,6 +70,36 @@ class SLL:
             print(current.get_data(), end=" --> ")
             current = current.get_next()
 
+    def remove(self, data):
+        """Remove Node from Linked List"""
+        # Case 1. Linked List is empty
+        if self.head is None:
+            return "There are no Nodes to remove"
+
+        # Case 2. The data is not in the Linked List
+        if not self.search(data):
+            return "Data doesn't exist in the Linked List"
+
+        current = self.head
+        # Case 3. It's a first node to remove
+        if current.get_data() == data:
+            self.head = current.get_next()
+            current.set_next(None)
+            return
+
+        prev = None
+        found = False
+        while not found:
+            # Case 4. When the data is elsewhere in the Linked List
+            if current.get_data() != data:
+                prev = current
+                current = current.get_next()
+            else:
+                found = True
+                prev.next = current.next
+                current.set_next(None)
+
+
 if __name__ == '__main__':
 
     # Linked List
@@ -87,7 +116,6 @@ if __name__ == '__main__':
     print("LinkedList1 is: ")
     sll.display_linked_list()
 
-
     print("\n\nLinkedList2: ")
     sll2 = SLL()
     my_lst = [2, 3, 4, 1]
@@ -103,14 +131,30 @@ if __name__ == '__main__':
     sll3 = SLL()
     print("Size when there is no elements in the Linked List: ", sll3.size())
     print("Add new Node to the end of the Linked List")
-    sll3.head = sll3.add_end("banana3")
+    sll3.add_end("banana3")
     print("New size: ", sll3.size())
-    sll3.head = sll3.add_end(12.45)
-    sll3.head = sll3.add_end(["hello"])
+    sll3.add_end(12.45)
+    sll3.add_end(["hello"])
     sll3.display_linked_list()
+    print("\nHead is on: ", sll3.head)
 
     print("\nSearching for data")
-    print(sll2.search(4)) # True
-    print(sll2.search(8)) # False
-    print(sll3.search(8)) # Linked List is empty. No Nodes to search
+    print(sll2.search(4))  # True
+    print(sll2.search(8))  # False
+    print(sll3.search(8))  # Linked List is empty. No Nodes to search
 
+    print("\nRemoving data from Linked List")
+    print("LinkedList3: ", end=" ")
+    sll3.add_end(34)
+    sll3.add_end("Welcome")
+    sll3.add_end("a")
+    sll3.add_end("b")
+    sll3.add_end("c")
+    print(sll3.display_linked_list())
+    print("When data 'apple' does not exist: ", sll3.remove("apple"))
+    print("When data is the 1st element in the Linked List: ")
+    sll3.remove("banana3")
+    print(sll3.display_linked_list())
+    print("When data is elsewhere in the Linked List: ")
+    sll3.remove("Welcome")
+    print(sll3.display_linked_list())
