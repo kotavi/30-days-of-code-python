@@ -49,3 +49,13 @@ ids = [17573005, 17572342, 17579000, 17570002, 17572345, 17579329]
 sorted_id = sorted(ids, key=lambda x: int(str(x)[-4:]))
 print(sorted_ids)
 
+"""
+Sort a list based on the second attribute 
+"""
+arr = [[10, 2, 5], [7, 1, 0], [9, 9, 9], [1, 23, 12], [6, 5, 9]]
+
+for lst in sorted(arr, key=lambda x: x[1]):
+    for el in lst:
+        print(el, end=" ")
+    print()
+
