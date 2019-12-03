@@ -144,14 +144,15 @@ if __name__ == '__main__':
     print(sll3.search(8))  # Linked List is empty. No Nodes to search
 
     print("\nRemoving data from Linked List")
-    print("LinkedList3: ", end=" ")
+    print("LinkedList3: ")
     sll3.add_end(34)
     sll3.add_end("Welcome")
     sll3.add_end("a")
     sll3.add_end("b")
     sll3.add_end("c")
     print(sll3.display_linked_list())
-    print("When data 'apple' does not exist: ", sll3.remove("apple"))
+    print("When data 'apple' does not exist: ")
+    print(sll3.remove("apple"))
     print("When data is the 1st element in the Linked List: ")
     sll3.remove("banana3")
     print(sll3.display_linked_list())

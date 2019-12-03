@@ -6,7 +6,7 @@ class DLLNode:
         self.previous = None
 
     def __repr__(self):
-        return "SLLNode object: data={}".format(self.data)
+        return "DLLNode object: data={}".format(self.data)
 
     # methods to interact with our Node
 
