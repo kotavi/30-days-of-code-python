@@ -1,4 +1,4 @@
-from hackerrank.stack_day16.my_stack import Stack
+from hackerrank.stack_queue_day16.stack_day16.my_stack import Stack
 
 def check_if_pairs(bracket1, bracket2):
     pairs = {"(": "", "[": "", "{": "", ")": "(", "]": "[", "}": "{"}
