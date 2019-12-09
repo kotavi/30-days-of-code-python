@@ -99,6 +99,13 @@ class SLL:
                 prev.next = current.next
                 current.set_next(None)
 
+    def find_middle(self):
+        mid = self.size()//2
+        current = self.head
+        for i in range(mid):
+            current = current.next
+        return current.get_data()
+
 
 if __name__ == '__main__':
 
@@ -159,3 +166,6 @@ if __name__ == '__main__':
     print("When data is elsewhere in the Linked List: ")
     sll3.remove("Welcome")
     print(sll3.display_linked_list())
+    print("Find middle node in the Linked List: ")
+    print(sll3.find_middle())
+
