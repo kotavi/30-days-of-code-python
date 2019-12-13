@@ -99,12 +99,34 @@ class SLL:
                 prev.next = current.next
                 current.set_next(None)
 
+    def return_last_node(self):
+        """Returns the last Node of the Linked List"""
+        last = self.head
+        if self.head is None:
+            return None
+        while last.next:
+            last = last.get_next()
+        return last
+
     def find_middle(self):
         mid = self.size()//2
         current = self.head
         for i in range(mid):
             current = current.next
-        return current.get_data()
+        return current
+
+    @property
+    def detect_loop(self):
+        ht = {}
+        current = self.head
+        while current:
+            if current.get_data() not in ht.keys():
+                ht[current.get_data()] = True
+            else:
+                return "True"
+            current = current.next
+        return "False"
+
 
 
 if __name__ == '__main__':
