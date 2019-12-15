@@ -1,0 +1,2 @@
+The is_zipfile() function returns a boolean indicating whether or not the filename
+passed as an argument refers to a valid ZIP file.
