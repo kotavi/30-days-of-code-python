@@ -30,4 +30,20 @@ if __name__ == '__main__':
     sll2.display_linked_list()
     print("\nLoop exists: ", sll2.detect_loop)
 
+    print("\nAdd more elements:")
+    sll2.add_end(13)
+    sll2.add_end(15)
+    sll2.add_end(18)
+    sll2.display_linked_list()
+
+    print("\nRemove 13:")
+    sll2.remove_node(13)
+    sll2.display_linked_list()
+    print("\nRemove 5:")
+    sll2.remove_node(5)
+    sll2.display_linked_list()
+
+
+
+
 

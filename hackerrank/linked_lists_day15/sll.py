@@ -99,6 +99,26 @@ class SLL:
                 prev.next = current.next
                 current.set_next(None)
 
+    def remove_node(self, data):
+        """Deletes a node (except the tail) in a singly linked list.
+            - The linked list will have at least two elements.
+            - All of the nodes' values will be unique.
+            - The given node will not be the tail and it will always be a valid node of the linked list.
+        """
+        current = self.head
+        if current.get_data() == data:
+            self.head = current.next
+            current.set_next(None)
+            return
+        while current.next:
+            if current.next.data == data:
+                node_to_remove = current.next
+                current.set_next(node_to_remove.next)
+                node_to_remove.set_next(None)
+            current = current.next
+
+
+
     def return_last_node(self):
         """Returns the last Node of the Linked List"""
         last = self.head
@@ -117,13 +137,13 @@ class SLL:
 
     @property
     def detect_loop(self):
-        ht = {}
+        ht = set()
         current = self.head
         while current:
-            if current.get_data() not in ht.keys():
-                ht[current.get_data()] = True
-            else:
+            if current in ht:
                 return "True"
+            else:
+                ht.add(current)
             current = current.next
         return "False"
 

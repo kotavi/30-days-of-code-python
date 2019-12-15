@@ -28,3 +28,18 @@ for value in arr:
         sums2.append([diff, value])
 print(sums2)
 
+print("\nSolution with two pointers:")
+arr.sort()
+set_ = set() # so that result doesn't have repeating data
+end = len(arr) - 1 # starting pointer from the end
+start = 0 # starting pointer from the beginning
+while start < end:
+    if arr[start] + arr[end] == s:
+        set_.add((arr[start], arr[end]))
+        start += 1
+    else:
+        if arr[start] + arr[end] > s:
+            end -= 1
+        else:
+            start += 1
+print([list(tup) for tup in set_])
