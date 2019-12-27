@@ -32,3 +32,15 @@ print("\nExponentiation function: ")
 for i in range(2, 6):
     print("{}^{} = ".format(i, 5), exponentiation(i, 5))
     # print("{}**{} = ".format(i, 5), i**5)
+
+def find_max(arr):
+    if len(arr) == 1:
+        return arr[0]
+    max1 = arr[0]
+    max2 = find_max(arr[1:])
+    if max1 > max2:
+        return max1
+    else:
+        return max2
+
+print("\nMax value:", find_max([12, 4, 0, -2, 45, 6]))
