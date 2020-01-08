@@ -80,3 +80,19 @@ def html_string(sample_string, tag):
 
 print(html_string('Python', 'i'))
 print(html_string('Python Tutorial', 'b'))
+
+"""
+Task 6:
+Remove duplicate characters of a given string
+"""
+
+def remove_duplicate(sample_string="Remove duplicate characters of a given string"):
+    ht = {}
+    new_string = ""
+    for i in range(len(sample_string)):
+        if sample_string[i] not in ht:
+            new_string += sample_string[i]
+            ht[sample_string[i]] = 1
+    return new_string
+
+print(remove_duplicate())

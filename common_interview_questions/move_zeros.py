@@ -38,4 +38,4 @@ def move_zeroes_3(nums):
 
 print(move_zeroes_1([1,0,0,3,0,8,8,8]))
 print(move_zeroes_2([1,0,0,3,0,8,8,8]))
-print(move_zeroes_3([1,0,0,3,0,8,8,8]))
+print(move_zeroes_3([1,1,0,3,0,8,8,8]))
