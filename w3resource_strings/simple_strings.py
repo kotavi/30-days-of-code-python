@@ -56,13 +56,11 @@ Count the occurrences of each word in a given sentence.
 
 def count_occurrences(sentence):
     ht = {}
-    for s in sentence:
-        if s not in string.punctuation:
-            symbol = s.lower()
-            if symbol in ht:
-                ht[symbol] += 1
+    for word in sentence.split():
+            if word in ht:
+                ht[word] += 1
             else:
-                ht[symbol] = 1
+                ht[word] = 1
     return ht
 
 
@@ -73,10 +71,12 @@ Task 5:
 Create the HTML string with tags around the word(s).
 """
 
+
 def html_string(sample_string, tag):
     html_tag_start = "<{}>".format(tag)
     html_tag_end = "</{}>".format(tag)
     return html_tag_start + sample_string + html_tag_end
+
 
 print(html_string('Python', 'i'))
 print(html_string('Python Tutorial', 'b'))
@@ -86,6 +86,7 @@ Task 6:
 Remove duplicate characters of a given string
 """
 
+
 def remove_duplicate(sample_string="Remove duplicate characters of a given string"):
     ht = {}
     new_string = ""
@@ -94,5 +95,6 @@ def remove_duplicate(sample_string="Remove duplicate characters of a given strin
             new_string += sample_string[i]
             ht[sample_string[i]] = 1
     return new_string
+
 
 print(remove_duplicate())
