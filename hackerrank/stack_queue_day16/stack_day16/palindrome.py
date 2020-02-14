@@ -11,6 +11,13 @@ def palindrome(word):
         end -= 1
     return True
 
+def palindrome_2(word):
+    left, right = 0, len(word) - 1
+    while left < right and word[left] == word[right]:
+        left += 1
+        right -= 1
+    return True if right <= left else False
+
 def palindrome_with_stack(word):
     word = word.lower()
     n = len(word)
