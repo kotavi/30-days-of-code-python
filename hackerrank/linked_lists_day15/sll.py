@@ -72,32 +72,27 @@ class SLL:
 
     def remove(self, data):
         """Remove Node from Linked List"""
-        # Case 1. Linked List is empty
         if self.head is None:
             return "There are no Nodes to remove"
 
-        # Case 2. The data is not in the Linked List
-        if not self.search(data):
-            return "Data doesn't exist in the Linked List"
-
         current = self.head
-        # Case 3. It's a first node to remove
-        if current.get_data() == data:
-            self.head = current.get_next()
-            current.set_next(None)
-            return
-
         prev = None
         found = False
+
         while not found:
-            # Case 4. When the data is elsewhere in the Linked List
-            if current.get_data() != data:
-                prev = current
-                current = current.get_next()
-            else:
+            if current.get_data() == data:
                 found = True
-                prev.next = current.next
-                current.set_next(None)
+            else:
+                if current.get_next() is None:
+                    return "Data doesn't exist in the Linked List"
+                else:
+                    prev = current
+                    current = current.get_next()
+
+        if prev is None:
+            self.head = current.get_next()
+        else:
+            prev.set_next(current.get_next())
 
     def remove_node(self, data):
         """Deletes a node (except the tail) in a singly linked list.
@@ -117,8 +112,6 @@ class SLL:
                 node_to_remove.set_next(None)
             current = current.next
 
-
-
     def return_last_node(self):
         """Returns the last Node of the Linked List"""
         last = self.head
@@ -128,12 +121,34 @@ class SLL:
             last = last.get_next()
         return last
 
+    def return_kth_to_last(self, the_head, k):
+        if the_head is None:
+            return 0
+        current = the_head
+        index = self.return_kth_to_last(current.get_next(), k) + 1
+        if index == k:
+            print("{}th to last node is {}".format(k, current.get_data()))
+        return index
+
     def find_middle(self):
-        mid = self.size()//2
+        mid = self.size() // 2
         current = self.head
         for i in range(mid):
             current = current.next
         return current
+
+    def remove_duplicates(self):
+        if self.head is None:
+            return False
+        ll_values = []
+        current = self.head
+        while current is not None:
+            if current.get_data() in ll_values:
+                self.remove(current.get_data())
+            else:
+                ll_values.append(current.get_data())
+            current = current.get_next()
+        return self.head
 
     @property
     def detect_loop(self):
@@ -146,7 +161,6 @@ class SLL:
                 ht.add(current)
             current = current.next
         return "False"
-
 
 
 if __name__ == '__main__':
@@ -211,3 +225,28 @@ if __name__ == '__main__':
     print("Find middle node in the Linked List: ")
     print(sll3.find_middle())
 
+    print("\nRemoving duplicates from Linked List")
+    print("LinkedList4: ")
+    sll4 = SLL()
+    sll4.add_end(34)
+    sll4.add_end("a")
+    sll4.add_end("a")
+    sll4.add_end("b")
+    sll4.add_end(34)
+    sll4.add_end("c")
+    print(sll4.display_linked_list())
+    sll4.remove_duplicates()
+    sll4.display_linked_list()
+
+    print("\nReturn kth to last")
+    print("LinkedList5: ")
+    sll5 = SLL()
+    sll5.add_end(34)
+    sll5.add_end("a")
+    sll5.add_end("a")
+    sll5.add_end("b")
+    sll5.add_end(34)
+    sll5.add_end("c")
+    sll5.display_linked_list()
+    print()
+    sll5.return_kth_to_last(sll5.head, 3)

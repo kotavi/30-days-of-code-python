@@ -2,7 +2,7 @@ class SLLNode:
 
     def __init__(self, data):
         self.data = data
-        self.next = None # when we create a new Node, it doesn't point to anything yet.
+        self.next = None  # when we create a new Node, it doesn't point to anything yet.
 
     def __repr__(self):
         return "SLLNode object: data={}".format(self.data)
@@ -25,8 +25,8 @@ class SLLNode:
         """Replace the existing value of the self.next attribute with new_next parameter."""
         self.next = new_next
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     node1 = SLLNode('apple')
     print(node1.get_data())
     print(node1.get_next())
