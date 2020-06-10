@@ -48,6 +48,7 @@ class Stack:
         """
         return self.items == []
 
+
 if __name__ == '__main__':
 
     stack = Stack()

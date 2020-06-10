@@ -1,6 +1,7 @@
 from hackerrank.stack_queue_day16.stack_day16.my_stack import Stack
 import string
 
+
 def palindrome(word):
     word = word.lower()
     start, end = 0, len(word) - 1
@@ -11,12 +12,14 @@ def palindrome(word):
         end -= 1
     return True
 
+
 def palindrome_2(word):
     left, right = 0, len(word) - 1
     while left < right and word[left] == word[right]:
         left += 1
         right -= 1
     return True if right <= left else False
+
 
 def palindrome_with_stack(word):
     word = word.lower()

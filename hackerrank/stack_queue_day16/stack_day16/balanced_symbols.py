@@ -1,9 +1,34 @@
 from hackerrank.stack_queue_day16.stack_day16.my_stack import Stack
 
+
 def check_if_pairs(bracket1, bracket2):
     pairs = {"(": "", "[": "", "{": "", ")": "(", "]": "[", "}": "{"}
-
     return pairs[bracket1] == bracket2
+
+
+def another_approach(symbols):
+    pairs = {"(": ")", "[": "]", "{": "}"}
+    stack = Stack()
+    for s in symbols:
+        if s in pairs:
+            stack.push(s)
+        else:
+            if stack.is_empty():
+                return False
+            if pairs[stack.peek()] == s:
+                stack.pop()
+    return stack.is_empty()
+
+
+print(another_approach("((){[]})"))
+print(another_approach("((){[{()()()}]})"))
+print(another_approach("((){[{())()}])"))
+print(another_approach("(("))
+print(another_approach("(()}"))
+print(another_approach("(()))"))
+print(another_approach(")))"))
+print("-*" * 40)
+
 
 def balanced_attempt1(symbols):
     n = len(symbols)
@@ -25,9 +50,11 @@ def balanced_attempt1(symbols):
     else:
         return "Unbalanced"
 
+
 print(balanced_attempt1("((){[]})"))
 print(balanced_attempt1("((){[{()()()}]})"))
 print(balanced_attempt1("((){[{())()}])"))
+print("-*" * 40)
 
 
 def balanced_attempt2(symbols):
@@ -62,3 +89,4 @@ def balanced_attempt2(symbols):
 print(balanced_attempt2("((){[]})"))
 print(balanced_attempt2("((){[{()()()}]})"))
 print(balanced_attempt2("((){[{())()}])"))
+print("-*" * 40)
