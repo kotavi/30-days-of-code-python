@@ -6,11 +6,8 @@ from collections import Counter
 
 
 def find_missing_character(s1, s2):
-    collection1 = Counter()
-    collection2 = Counter()
-
-    for s in s1: collection1[s] += 1
-    for s in s2: collection2[s] += 1
+    collection1 = Counter(s1)
+    collection2 = Counter(s2)
 
     if sorted(collection1.values()) == sorted(collection2.values()):
         print("The same number of letters")
@@ -27,4 +24,3 @@ def find_missing_character(s1, s2):
 find_missing_character("kitten", "kitten")
 find_missing_character("vocal", "vocation")
 find_missing_character("knittinggstitchses", "knittingggstitchses")
-

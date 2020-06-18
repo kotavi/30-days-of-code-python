@@ -31,7 +31,7 @@ for i in range(total):
 
     # fill in first positions with '0'
     for k in range(len(arr)):
-        while len(binary_value) <  len(arr):
+        while len(binary_value) < len(arr):
             binary_value = '0' + binary_value
     # go through binary number, if j-th bit is equal to '1' then j-th element from arr will be included
     # in the output combination

@@ -4,9 +4,14 @@ Given two arrays, write a function to compute their intersection.
 Example 1:
 Input: nums1 = [1,2,2,1], nums2 = [2,2]
 Output: [2,2]
-
 """
 from collections import Counter
+
+nums1 = [1, 2, 2, 1]
+nums2 = [2, 2]
+
+x = [el for el in nums1 if el in nums2]
+print(x)
 
 
 def intersect_1(nums1, nums2):

@@ -20,8 +20,8 @@ Output: [1,0,0,0]
 Explanation: The array represents the integer 1000.
 """
 
-# Naive solution
 
+# Naive solution
 def one_plus_method1(digits):
     if not digits:
         return []
@@ -29,13 +29,14 @@ def one_plus_method1(digits):
     for value in digits:
         s += str(value)
     new_digit = str(int(s) + 1)
-
     return [int(value) for value in new_digit]
 
+
 print(one_plus_method1([]))
-print(one_plus_method1([1,1,1]))
-print(one_plus_method1([1,9,9]))
-print(one_plus_method1([9,9,9]))
+print(one_plus_method1([1, 1, 1]))
+print(one_plus_method1([1, 9, 9]))
+print(one_plus_method1([9, 9, 9]))
+
 
 """
             -1
@@ -60,6 +61,8 @@ print(one_plus_method1([9,9,9]))
 
 -5
 """
+
+
 def one_plus_method2(digits, end=-1):
     """Recursive way of solving the task"""
     if end == -(len(digits) + 1):
@@ -71,7 +74,8 @@ def one_plus_method2(digits, end=-1):
             one_plus_method2(digits, end - 1)
     return digits
 
+
 print(one_plus_method2([]))
-print(one_plus_method1([1,1,1]))
-print(one_plus_method1([1,9,9]))
-print(one_plus_method1([9,9,9]))
+print(one_plus_method1([1, 1, 1]))
+print(one_plus_method1([1, 9, 9]))
+print(one_plus_method1([9, 9, 9]))

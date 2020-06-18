@@ -8,6 +8,7 @@ def longest_word_1(string_line):
             resulting_word = word
     return max_length, resulting_word
 
+
 def longest_word_2(string_line):
     result = []
     for word in string_line.split():
