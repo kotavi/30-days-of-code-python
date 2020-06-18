@@ -4,6 +4,7 @@ If there are no common letters print "No common characters".
 """
 from collections import Counter
 
+
 def common_characters(str1, str2):
     c1 = Counter(str1)
     c2 = Counter(str2)
@@ -13,5 +14,6 @@ def common_characters(str1, str2):
         return "No common characters."
 
     return "".join(common.keys())
+
 
 print(common_characters("Python", "Print"))

@@ -3,6 +3,7 @@ def create_multiplier(a):
         return x * a
     return multiplier
 
+
 double = create_multiplier(2)
 triple = create_multiplier(3)
 

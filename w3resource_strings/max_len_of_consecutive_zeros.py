@@ -25,5 +25,5 @@ def consecutive_zeros_2(b="001010100000000011100000000000000000"):
     return max(map(len, b.split('1')))
 
 
-print(consecutive_zeros())
+print(consecutive_zeros('111110000111000000'))
 print(consecutive_zeros_2())

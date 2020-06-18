@@ -1,13 +1,17 @@
 import math
 
+
 def squared(number):
     return math.sqrt(number)
+
 
 def double(number):
     return 2 * number
 
+
 def minus_one(number):
     return number - 1
+
 
 def pow_2(number):
     return number * number
