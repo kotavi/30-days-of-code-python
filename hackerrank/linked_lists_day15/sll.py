@@ -4,7 +4,10 @@ from hackerrank.linked_lists_day15.singly_linked_lists import SLLNode
 
 class SLL:
     def __init__(self):
-        self.head = None  # when we first create a new singly Linked List object, we haven't yet associated any nodes to it.
+        """ When we first create a new singly Linked List object,
+        we haven't yet associated any nodes to it.
+        """
+        self.head = None
 
     def __repr__(self):
         return "SLL object: head={}".format(self.head)

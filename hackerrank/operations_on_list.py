@@ -21,6 +21,7 @@ def list_commands():
             value = int(inp[1])
         exec(switcher[command])
 
+
 # execute different commands on a list
 print("*" * 50)
 list_commands()

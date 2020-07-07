@@ -1,5 +1,6 @@
 import unittest
 
+
 class TestCases(unittest.TestCase):
 
     def sort_a_list(self, lst, rev=False):
@@ -43,6 +44,7 @@ class TestCases(unittest.TestCase):
         actual_result = self.sort_a_list([1, 0, 3, -2, -5, 2], 1)
         self.assertEqual(expected_result, actual_result, "Test Failed: expected '{}' but got '{}'"
                          .format(expected_result, actual_result))
+
 
 if __name__ == '__main__':
     unittest.main()

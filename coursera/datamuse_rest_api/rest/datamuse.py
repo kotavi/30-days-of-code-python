@@ -15,6 +15,8 @@ words that often follow "drink" in a sentence, that start with the letter w	/wor
 words that are triggered by (strongly associated with) the word "cow"	/words?rel_trg=cow
 suggestions for the user if they have typed in rawand so far	/sug?s=rawand
 """
+
+
 class DatamuseApi:
 
     def __init__(self, url="https://api.datamuse.com"):
